@@ -1,5 +1,11 @@
 <%= form_for @article do |field| %>
 
+<% if @article.errors.any? %>
+  <% @article.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
 <%= field.text_field :title, placeholder: "Title" %>
 
 <%= field.text_field :body, placeholder: "Body" %>
